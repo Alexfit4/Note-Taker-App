@@ -1,21 +1,27 @@
 {
-  "name": "note-taker",
+  "name": "develop",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "description": "Note Taker",
+  "main": "app.js",
   "dependencies": {
-<<<<<<< HEAD:10-OOP/01-Activities/04-Stu_Weather-Admin/Unsolved/package.json
     "date-now": "^1.0.1",
+    "express": "^4.17.1",
     "moment": "^2.29.1",
     "utf8": "^3.0.0",
     "weather-js": "^2.0.0"
-=======
-    "express": "^4.16.4"
->>>>>>> 133f7e43a9d30569ac1e692215f9d581063992c8:11-express/02-Homework/Develop/package.json
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexfit4/Note-Taker-App.git"
+  },
+  "author": "Amir Ashtiany",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alexfit4/Note-Taker-App/issues"
+  },
+  "homepage": "https://github.com/Alexfit4/Note-Taker-App#readme"
 }
