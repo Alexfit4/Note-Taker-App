@@ -1,3 +1,4 @@
+// * Required npm pages and express modules.
 const express = require("express");
 const { get } = require("http");
 const app = express();
@@ -5,9 +6,9 @@ const PORT = process.env.PORT || 3000;
 const path = require("path");
 const outputPath = path.join("./db/", "db.json");
 const fs = require("fs");
-const repo = require("./repository");
 
-// Sets up the Express app to handle data parsing
+
+// * Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(__dirname + "/public"));
@@ -15,22 +16,25 @@ app.use(express.static(__dirname + "/public/assets/js"));
 
 let notes = [];
 
+// * Get method to get the index.html
 app.get("/index", (req, res) => {
 	res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
+
+// * Get method to get the notes.html
 app.get("/notes", (req, res) =>
 	res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
 
-// Displays all notes
+// * Get request. To see the db.json file.
 app.get("/api/notes", (req, res) => {
 	fs.readFile(outputPath, res.json(notes), function (err) {
 		if (err) console.log("error", err);
 	});
 });
 
-// Create New Characters - takes in JSON input
+// * Post request. Creating a new id for each note and pushing it into the note array.
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
 	const newObj = {
@@ -46,6 +50,8 @@ app.post("/api/notes", (req, res) => {
 	});
 });
 
+
+// * Delete request.
 app.delete("/api/notes/:id", (req, res) => {
 	
 	const chosen = req.params.id;
@@ -61,4 +67,4 @@ app.delete("/api/notes/:id", (req, res) => {
 
 });
 
-app.listen(PORT, () => console.log(`Example app listening on port port!`));
+app.listen(PORT, () => console.log(`Example app listening on port 3000!`));
