@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000;
 const path = require("path");
 const outputPath = path.join("./db/", "db.json");
 const fs = require("fs");
+const repo = require("./repository");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -22,11 +23,10 @@ app.get("/notes", (req, res) =>
 	res.sendFile(path.join(__dirname, "./public/notes.html"))
 );
 
-// fs.appendFileSync(res.json(notes));
 
 // Displays all notes
 app.get("/api/notes", (req, res) => {
-    fs.readFile(outputPath, res.json(notes), function (err) {
+	fs.readFile(outputPath, res.json(notes), function (err) {
 		if (err) console.log("error", err);
 	});
 });
@@ -34,8 +34,13 @@ app.get("/api/notes", (req, res) => {
 // Create New Characters - takes in JSON input
 app.post("/api/notes", (req, res) => {
 	const newNote = req.body;
-	notes.push(newNote);
-	res.json(newNote);
+	const newObj = {
+		title: req.body.title,
+		text: req.body.text,
+		id: notes.length + 1,
+	};
+	notes.push(newObj);
+	res.json(newObj);
 
 	fs.writeFile(outputPath, JSON.stringify(notes), function (err) {
 		if (err) console.log("error", err);
