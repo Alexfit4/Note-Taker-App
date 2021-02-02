@@ -28,5 +28,8 @@ npm i
 
 [Github Account](https://github.com/Alexfit4)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 27dc31f0c741390db79eb3a65a2c508563a2b16c
 Email me at alex.ashtiany@gmail.com
