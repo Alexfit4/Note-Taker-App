@@ -7,6 +7,9 @@
 The app allows the user to input notes and to do's, and save them. Also allows the user to look at previous notes if they want, and later they can also delete the previous notes as well.
 
 ## Screenshots
+![11-express-homework-demo-01](https://user-images.githubusercontent.com/69173896/106664348-f241ae80-6572-11eb-8acf-5e95e5e6471c.png)
+![11-express-homework-demo-02](https://user-images.githubusercontent.com/69173896/106664353-f2da4500-6572-11eb-8103-4cd55eceecfd.png)
+
 
 ## Table of Contents
 
