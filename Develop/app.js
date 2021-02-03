@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const path = require("path");
 const outputPath = path.join("./db/", "db.json");
 const fs = require("fs");
-
+const uniqid = require("uniqid");
 
 // * Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -20,7 +20,6 @@ let notes = [];
 app.get("/index", (req, res) => {
 	res.sendFile(path.join(__dirname, "./public/index.html"));
 });
-
 
 // * Get method to get the notes.html
 app.get("/notes", (req, res) =>
@@ -40,7 +39,7 @@ app.post("/api/notes", (req, res) => {
 	const newObj = {
 		title: req.body.title,
 		text: req.body.text,
-		id: notes.length + 1,
+		id: uniqid(),
 	};
 	notes.push(newObj);
 	res.json(newObj);
@@ -50,21 +49,19 @@ app.post("/api/notes", (req, res) => {
 	});
 });
 
-
 // * Delete request.
 app.delete("/api/notes/:id", (req, res) => {
-	
-	const chosen = req.params.id;
-	console.log(chosen);
-
-	notes.pop(chosen)
-	
+	const deleteNote = req.params.id;
+	for (let i = 0; i < notes.length; i++) {
+		if (notes[i].id === deleteNote) {
+			notes.splice(i, 1);
+		}
+	}
 	res.json(notes);
 
-	fs.writeFile(outputPath, JSON.stringify(notes), function (err) {
+	fs.writeFile(outputPath, JSON.stringify(notes), function (err, result) {
 		if (err) console.log("error", err);
 	});
-
 });
 
 app.listen(PORT, () => console.log(`Example app listening on port 3000!`));
