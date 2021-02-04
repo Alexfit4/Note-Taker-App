@@ -1,5 +1,5 @@
 # Note-Taker-App
-
+[Heroku link](https://note-taker-alexfit4.herokuapp.com/)
 [Note Taker Repo](https://github.com/Alexfit4/Note-Taker-App)
 
 ## Description
@@ -9,6 +9,9 @@ The app allows the user to input notes and to do's, and save them. Also allows t
 ## Screenshots
 ![11-express-homework-demo-01](https://user-images.githubusercontent.com/69173896/106664348-f241ae80-6572-11eb-8acf-5e95e5e6471c.png)
 ![11-express-homework-demo-02](https://user-images.githubusercontent.com/69173896/106664353-f2da4500-6572-11eb-8103-4cd55eceecfd.png)
+
+## Acknowledgment:
+- Thank you Johnnie Simpson for helping me with my delete method! Check Johnnie's github at: https://github.com/balokdecoy
 
 
 ## Table of Contents
